@@ -1,6 +1,4 @@
-# NYC TAXI🚖 Azure End-to-End Data Engineering Project
-
-# 🚀 **Azure End-to-End Data Engineering Project**
+# NYC TAXI🚖 Azure End-to-End Data Engineering Project 🚀
 
 Welcome to my **Azure End-to-End Data Engineering Project**! In this project, I used various Azure tools and technologies to **ingest, transform, and serve data** efficiently. Let’s dive into what I’ve built step by step. 🛠️
 
