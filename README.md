@@ -1,5 +1,3 @@
-# NYC-TAXI-End-To-End-Azure-Data-Engineering-Project
-
 # 🚖 Azure End-to-End Data Engineering Project
 
 This project demonstrates an end-to-end data engineering pipeline using Azure Data Services and Databricks for **Data Ingestion**, **Transformation**, and **Serving**. It uses Azure Data Factory, Azure Data Lake Gen2, and Delta Lake to build a robust and scalable solution for processing data.
