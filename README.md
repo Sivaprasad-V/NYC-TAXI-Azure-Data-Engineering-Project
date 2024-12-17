@@ -94,11 +94,11 @@ Here’s how I organized my data in **Azure Data Lake Gen2**:
 ```
 DataLakeGen2/
 │
-├── RawDataStore/          <- Raw data in Parquet format
+├── bronze/          <- Raw data in Parquet format
 │
-├── TransformedData/       <- Cleaned and transformed data
+├── silver/          <- Cleaned and transformed data
 │
-└── Serving/               <- Final Delta Tables for analytics
+└── gold/            <- Final Delta Tables for analytics
 ```
 
 ---
