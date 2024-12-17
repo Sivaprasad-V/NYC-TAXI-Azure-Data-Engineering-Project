@@ -1,100 +1,114 @@
 # 🚖 Azure End-to-End Data Engineering Project
+📋 Project Overview
+This project handles data in three major steps:
 
-# Azure End-to-End Data Engineering Project
+Ingestion: Collect raw data and store it.
+Transformation: Clean, process, and transform the data.
+Serving: Save the transformed data in a serving layer for further analysis.
+I used Azure Data Factory, Azure Data Lake Storage (Gen2), Databricks, and Delta Lake for this project.
 
-This README provides a detailed explanation of my Azure-based end-to-end data engineering project. The project demonstrates the ingestion, transformation, and serving of data using Azure services, including Data Factory, Databricks, and Data Lake.
+📊 Architecture
+Here’s the overall architecture of the project:
 
----
-## **1. Project Overview**
-The project processes taxi trip data and implements the following stages:
+Source Data 🛵
 
-1. **Ingestion** - Raw data is ingested from the source using Azure Data Factory.
-2. **Transformation** - Data is transformed and stored in Parquet format using Databricks.
-3. **Serving** - Final data is stored in Delta Lake format with advanced features like *Versioning* and *Time Travel*.
-4. **Security** - Data is secured with Azure Active Directory and Key Vault.
+I collected data (in this case, Taxi data) from an API.
+Ingestion Layer 🌐
 
----
-## **2. Data Flow Architecture**
-Here is the step-by-step data flow:
+I ingested the raw data into Azure Data Lake Gen2.
+I stored the data in Parquet format for efficient storage and processing.
+Transformation Layer 🧹
 
-### **Step 1: Ingestion**
-- **Tool**: Azure Data Factory
-- **Process**:
-   - The raw data is fetched from a REST API (Taxi trip data).
-   - Data is stored in the **Raw Data Store** within **Azure Data Lake Gen2**.
+I used Azure Databricks to clean and transform the data.
+I converted the raw data into a meaningful format using Spark and saved it back to Azure Data Lake Gen2.
+Serving Layer 🎯
 
-### **Step 2: Transformation**
-- **Tool**: Azure Databricks
-- **Process**:
-   - The raw data is loaded into Databricks.
-   - Data cleaning and transformation are performed using PySpark.
-   - Transformed data is stored back in **Azure Data Lake Gen2** in **Parquet format**.
+The cleaned, transformed data was saved as a Delta Table in the serving layer for analytics and reporting.
+Security 🔒
 
-### **Step 3: Serving Data with Delta Lake**
-- **Tool**: Azure Databricks
-- **Process**:
-   - Final data is stored in **Delta Lake**.
-   - Implemented **Versioning** and **Time Travel** for advanced data management.
-     - *Versioning*: Tracks changes made to the data.
-     - *Time Travel*: Allows querying previous versions of the data.
+I ensured secure access to all Azure services using Azure Active Directory and role-based access control (RBAC).
+🛠️ Steps of the Project
+1. Data Ingestion
+I used Azure Data Factory to extract data from an external API.
+The data was stored as raw Parquet files in the Raw Data Store folder of Data Lake Gen2.
+2. Data Transformation
+I used Databricks for data processing and transformation.
+The tasks included:
+Reading the raw data.
+Performing cleaning and transformation.
+Writing the transformed data back to Data Lake Gen2 in Parquet format.
+3. Serving Data with Delta Lake
+I converted the transformed data into Delta Tables for optimized storage and performance.
+The data was stored in the Serving folder of Data Lake Gen2.
+Delta Tables make it easy to query and perform analytics on the data.
+4. Security
+I applied Azure Security features to protect the data.
+Tools used:
+Azure Active Directory for authentication.
+Role-Based Access Control (RBAC) for authorization.
+🔎 Technologies Used
+Tool/Service	Purpose
+Azure Data Factory	Ingesting data from APIs.
+Azure Data Lake Gen2	Storage for raw, transformed, and served data.
+Databricks	Processing and transforming the data using Spark.
+Parquet	Storage format for raw and transformed data.
+Delta Lake	Optimized format for serving clean data.
+Azure Active Directory	Security and access management.
+📂 Folder Structure
+Here’s how I organized my data in Azure Data Lake Gen2:
 
-   - This ensures data reliability, consistency, and flexibility for analytical workloads.
+kotlin
+Copy code
+DataLakeGen2/
+│
+├── RawDataStore/          <- Raw data in Parquet format
+│
+├── TransformedData/       <- Cleaned and transformed data
+│
+└── Serving/               <- Final Delta Tables for analytics
+🎉 Key Highlights
+Dynamic Pipeline in Data Factory
+I created a dynamic pipeline to handle data ingestion dynamically, based on certain conditions. For example:
 
----
-## **3. Security**
-To ensure the project is secure:
-- **Azure Active Directory (AAD)** is used for authentication.
-- **Azure Key Vault** is used to securely store secrets and keys.
+Copy Data 1 for small numbers.
+Copy Data 2 for large numbers.
+Efficient Transformation
+Using Databricks, I transformed raw data into meaningful, clean data quickly and efficiently.
 
----
-## **4. Tools & Technologies Used**
-- **Azure Data Factory**: For data ingestion.
-- **Azure Databricks**: For data transformation and serving.
-- **Azure Data Lake Gen2**: Data storage at every stage.
-- **Delta Lake**: For serving data with versioning and time travel.
-- **Azure Active Directory**: For authentication and security.
-- **Azure Key Vault**: For secrets management.
+Serving Layer with Delta Tables
+The final output is stored as Delta Tables, which provide fast query performance and are perfect for analytics.
 
----
-## **5. Pipeline Explanation**
+Security First
+All data movement and storage are secured using Azure’s built-in security features.
 
-### Dynamic Pipeline in Azure Data Factory
-- I have created a **DynamicPipeline** in Azure Data Factory.
-- The pipeline includes a **ForEach** activity and an **If Condition**.
-   - The condition checks: `@greater(item(), 9)`.
-   - **True Case**: Runs *Copy data2* activity.
-   - **False Case**: Runs *Copy data1* activity.
+📊 How to Run the Project
+Follow these steps to run the project:
 
----
-## **6. Project Diagram**
-Below is a high-level diagram of the project:
+Set up Azure Resources:
 
-![Project Diagram](image.png)
+Create Azure Data Lake Gen2, Azure Databricks, and Azure Data Factory.
+Ingest Data:
 
----
-## **7. How to Run the Project**
-1. **Set up Azure Resources**:
-   - Azure Data Factory
-   - Azure Databricks
-   - Azure Data Lake Gen2
-2. **Load Data**:
-   - Configure the REST API source for taxi trip data.
-3. **Execute the Pipeline**:
-   - Run the Azure Data Factory pipeline for ingestion.
-   - Use Databricks for transformation and serving the data.
-4. **Verify Data**:
-   - Check the raw, transformed, and served data in Azure Data Lake Gen2.
-   - Use Delta Lake's versioning and time travel to query historical data.
+Use Azure Data Factory to collect data and store it in Data Lake Gen2.
+Transform Data:
 
----
-## **8. Conclusion**
-This project demonstrates a robust data pipeline using Azure services to ingest, transform, and serve data. The use of Delta Lake ensures advanced features like versioning and time travel, making the solution reliable and future-proof.
+Use Databricks to clean and transform the data.
+Store Data:
 
-Thank you for checking out this project! 🚀
+Write the transformed data as Delta Tables to the serving layer.
+Analyze the Data:
 
----
-## **9. Contact Information**
-Feel free to reach out to me for any queries or collaboration opportunities!
+Query the Delta Tables for reporting and insights.
+📈 Conclusion
+This project shows how you can build an end-to-end data engineering solution using Azure tools. It covers everything from ingesting data to transforming it and saving it securely for analysis.
+
+Feel free to clone this project and try it on your own. Let me know if you have any questions or suggestions! 😃
+
+🧩 Next Steps
+Add more transformations in Databricks.
+Use Power BI or Synapse Analytics to visualize the data.
+Automate pipelines further using triggers.
+
 
 **Name**: [Your Name]  
 **Email**: [Your Email]  
