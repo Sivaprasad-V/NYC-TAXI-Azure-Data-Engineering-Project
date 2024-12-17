@@ -1,95 +1,104 @@
 # 🚖 Azure End-to-End Data Engineering Project
 
-This project demonstrates an end-to-end data engineering pipeline using Azure Data Services and Databricks for **Data Ingestion**, **Transformation**, and **Serving**. It uses Azure Data Factory, Azure Data Lake Gen2, and Delta Lake to build a robust and scalable solution for processing data.
+# Azure End-to-End Data Engineering Project
+
+This README provides a detailed explanation of my Azure-based end-to-end data engineering project. The project demonstrates the ingestion, transformation, and serving of data using Azure services, including Data Factory, Databricks, and Data Lake.
 
 ---
+## **1. Project Overview**
+The project processes taxi trip data and implements the following stages:
 
-## 📊 **Project Overview**
-
-The project involves ingesting **Taxi Trip** data via APIs into Azure Data Lake Gen2. Using **Databricks**, the raw data is transformed and optimized in multiple stages to enable analytics-ready data serving.
-
----
-
-## ⚙️ **Architecture**
-
-### Key Components:
-
-1. **Ingestion**:
-   - Source: Taxi Trip Data (via API).
-   - Tool: Azure Data Factory.
-   - Destination: **Raw Data Store** in Azure Data Lake Gen2 (stored as Parquet).
-
-2. **Transformation**:
-   - Tool: Azure Databricks.
-   - Stages:
-     - Raw data → Transformed data (Parquet format).
-     - Optimized for analytics.
-
-3. **Serving**:
-   - Optimized data stored in **Delta Lake** for query serving.
-   - Tool: Azure Data Lake Gen2.
-
-4. **Security**:
-   - Azure Active Directory for authentication.
-   - Managed access keys for securing resources.
+1. **Ingestion** - Raw data is ingested from the source using Azure Data Factory.
+2. **Transformation** - Data is transformed and stored in Parquet format using Databricks.
+3. **Serving** - Final data is stored in Delta Lake format with advanced features like *Versioning* and *Time Travel*.
+4. **Security** - Data is secured with Azure Active Directory and Key Vault.
 
 ---
+## **2. Data Flow Architecture**
+Here is the step-by-step data flow:
 
-## 🚀 **Technologies Used**
+### **Step 1: Ingestion**
+- **Tool**: Azure Data Factory
+- **Process**:
+   - The raw data is fetched from a REST API (Taxi trip data).
+   - Data is stored in the **Raw Data Store** within **Azure Data Lake Gen2**.
 
-- **Azure Data Factory**: Orchestrates data ingestion workflows.
-- **Azure Data Lake Storage Gen2**: Cloud storage for raw and processed data.
-- **Azure Databricks**: Data transformation, ETL, and Delta Lake implementation.
-- **Delta Lake**: Ensures ACID transactions, data reliability, and time travel.
-- **Parquet**: Storage format for raw and transformed data.
-- **Azure Active Directory**: Secures the pipeline.
+### **Step 2: Transformation**
+- **Tool**: Azure Databricks
+- **Process**:
+   - The raw data is loaded into Databricks.
+   - Data cleaning and transformation are performed using PySpark.
+   - Transformed data is stored back in **Azure Data Lake Gen2** in **Parquet format**.
+
+### **Step 3: Serving Data with Delta Lake**
+- **Tool**: Azure Databricks
+- **Process**:
+   - Final data is stored in **Delta Lake**.
+   - Implemented **Versioning** and **Time Travel** for advanced data management.
+     - *Versioning*: Tracks changes made to the data.
+     - *Time Travel*: Allows querying previous versions of the data.
+
+   - This ensures data reliability, consistency, and flexibility for analytical workloads.
 
 ---
+## **3. Security**
+To ensure the project is secure:
+- **Azure Active Directory (AAD)** is used for authentication.
+- **Azure Key Vault** is used to securely store secrets and keys.
 
-## 🔧 **Steps to Run the Project**
+---
+## **4. Tools & Technologies Used**
+- **Azure Data Factory**: For data ingestion.
+- **Azure Databricks**: For data transformation and serving.
+- **Azure Data Lake Gen2**: Data storage at every stage.
+- **Delta Lake**: For serving data with versioning and time travel.
+- **Azure Active Directory**: For authentication and security.
+- **Azure Key Vault**: For secrets management.
 
-### Prerequisites:
-1. Azure subscription with access to:
+---
+## **5. Pipeline Explanation**
+
+### Dynamic Pipeline in Azure Data Factory
+- I have created a **DynamicPipeline** in Azure Data Factory.
+- The pipeline includes a **ForEach** activity and an **If Condition**.
+   - The condition checks: `@greater(item(), 9)`.
+   - **True Case**: Runs *Copy data2* activity.
+   - **False Case**: Runs *Copy data1* activity.
+
+---
+## **6. Project Diagram**
+Below is a high-level diagram of the project:
+
+![Project Diagram](image.png)
+
+---
+## **7. How to Run the Project**
+1. **Set up Azure Resources**:
    - Azure Data Factory
-   - Azure Data Lake Gen2
    - Azure Databricks
-2. Python and Spark skills.
-3. Access to the Taxi Trip Data API.
+   - Azure Data Lake Gen2
+2. **Load Data**:
+   - Configure the REST API source for taxi trip data.
+3. **Execute the Pipeline**:
+   - Run the Azure Data Factory pipeline for ingestion.
+   - Use Databricks for transformation and serving the data.
+4. **Verify Data**:
+   - Check the raw, transformed, and served data in Azure Data Lake Gen2.
+   - Use Delta Lake's versioning and time travel to query historical data.
 
 ---
+## **8. Conclusion**
+This project demonstrates a robust data pipeline using Azure services to ingest, transform, and serve data. The use of Delta Lake ensures advanced features like versioning and time travel, making the solution reliable and future-proof.
 
-### Step-by-Step Process:
-
-1. **Data Ingestion**:
-   - Use Azure Data Factory to connect to the API.
-   - Load raw data into Azure Data Lake Gen2.
-
-2. **Data Transformation**:
-   - Set up a Databricks notebook.
-   - Load raw Parquet data.
-   - Transform the data using Spark (PySpark).
-   - Save intermediate transformed data as Parquet.
-
-3. **Serving Layer**:
-   - Convert transformed data into a Delta table.
-   - Save it in Azure Data Lake Gen2.
-
-4. **Security**:
-   - Integrate Azure Active Directory for resource protection.
+Thank you for checking out this project! 🚀
 
 ---
+## **9. Contact Information**
+Feel free to reach out to me for any queries or collaboration opportunities!
 
-## 📂 **Directory Structure**
+**Name**: [Your Name]  
+**Email**: [Your Email]  
+**GitHub**: [Your GitHub Profile Link]
 
-```plaintext
-.
-├── notebooks/            # Databricks Notebooks
-│   ├── 01_data_ingestion.ipynb
-│   ├── 02_data_transformation.ipynb
-│   └── 03_delta_serving.ipynb
-├── data/                 # Sample Raw Data (if any)
-├── pipeline/             # Data Factory pipeline JSON exports
-├── images/               # Architecture diagrams or screenshots
-├── README.md             # Project documentation
-└── LICENSE               # License information
+
 
