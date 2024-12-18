@@ -51,7 +51,7 @@ Here’s the overall architecture of the project:
 ### 1. **Data Ingestion**
 
 - I used **Azure Data Factory** to extract data from an external API.
-- The data was stored as raw **Parquet files** in the **Raw Data Store** folder of **Data Lake Gen2**.
+- The data was stored as raw **Parquet files** in the **Bronze** folder of **Data Lake Gen2**.
 
   ![image](https://github.com/user-attachments/assets/060eafa9-ef11-416e-9b9d-0525bb90e998)
 
@@ -70,7 +70,18 @@ Here’s the overall architecture of the project:
 - The tasks included:
   - Reading the raw data.
   - Performing **cleaning** and **transformation**.
-  - Writing the transformed data back to **Data Lake Gen2** in Parquet format.
+  - Writing the transformed data back to **Data Lake Gen2[Silver Folder]** in Parquet format.
+ 
+    ![image](https://github.com/user-attachments/assets/2ae5c538-442d-4d3d-bd2f-14bd4473a991)
+
+    ![image](https://github.com/user-attachments/assets/9a9c42c2-dd1a-43c6-88d7-c4989f498fd0)
+
+    ![image](https://github.com/user-attachments/assets/047bef2d-816e-42e0-9965-d79b39f38000)
+
+    ![image](https://github.com/user-attachments/assets/7d63f998-35e2-4ac6-8107-5004f4605e35)
+
+
+
 
 ### 3. **Serving Data with Delta Lake**
 
