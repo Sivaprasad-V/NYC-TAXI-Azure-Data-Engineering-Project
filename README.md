@@ -26,9 +26,6 @@ Here’s the overall architecture of the project:
    - **API LINK** https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
    - **File Link** https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2023-01.parquet
      
-     ![image](https://github.com/user-attachments/assets/db3b587a-79e0-451e-92ce-541c80fe5823)
-
-
 2. **Ingestion Layer** 🌐
 
    - I ingested the raw data into **Azure Data Lake Gen2**.
