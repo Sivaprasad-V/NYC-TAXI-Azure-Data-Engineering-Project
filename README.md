@@ -23,6 +23,8 @@ Here’s the overall architecture of the project:
 1. **Source Data** 🚵
 
    - I collected data (in this case, Taxi data) from an **API**.
+   - **API LINK** https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+   - **File Link** https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2023-01.parquet
 
 2. **Ingestion Layer** 🌐
 
