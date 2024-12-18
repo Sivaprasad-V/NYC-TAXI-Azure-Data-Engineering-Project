@@ -70,7 +70,7 @@ Here’s the overall architecture of the project:
 - The tasks included:
   - Reading the raw data.
   - Performing **cleaning** and **transformation**.
-  - Writing the transformed data back to **Data Lake Gen2[Silver Folder]** in Parquet format.
+  - Writing the transformed data back to **Data Lake Gen2 Silver Folder** in Parquet format.
  
     ![image](https://github.com/user-attachments/assets/2ae5c538-442d-4d3d-bd2f-14bd4473a991)
 
@@ -86,8 +86,17 @@ Here’s the overall architecture of the project:
 ### 3. **Serving Data with Delta Lake**
 
 - I converted the transformed data into **Delta Tables** for optimized storage and performance.
-- The data was stored in the **Serving folder** of **Data Lake Gen2**.
+- The data was stored in the **Gold Folder** of **Data Lake Gen2**.
 - Delta Tables make it easy to query and perform analytics on the data.
+
+  ![image](https://github.com/user-attachments/assets/d549ace6-a704-4040-91c4-5ab5faea4014)
+
+  ![image](https://github.com/user-attachments/assets/88fde5d3-0bbc-47f3-a045-ef54d51d42c1)
+
+  ![image](https://github.com/user-attachments/assets/2e6cbc32-03f1-4148-981b-030974affde7)
+
+
+
 
 ### 4. **Security**
 
