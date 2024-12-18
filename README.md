@@ -53,6 +53,17 @@ Here’s the overall architecture of the project:
 - I used **Azure Data Factory** to extract data from an external API.
 - The data was stored as raw **Parquet files** in the **Raw Data Store** folder of **Data Lake Gen2**.
 
+  ![image](https://github.com/user-attachments/assets/060eafa9-ef11-416e-9b9d-0525bb90e998)
+
+  ![image](https://github.com/user-attachments/assets/a53b90a5-459c-4346-bc64-09e98364a38b)
+
+  ![image](https://github.com/user-attachments/assets/5f5951a8-6e4e-4104-bd89-c1f83a727a53)
+  
+  ![image](https://github.com/user-attachments/assets/568f5bda-f3f0-49ad-893e-07cc62097a71)
+
+
+
+
 ### 2. **Data Transformation**
 
 - I used **Databricks** for data processing and transformation.
