@@ -72,13 +72,17 @@ Here’s the overall architecture of the project:
   - Performing **cleaning** and **transformation**.
   - Writing the transformed data back to **Data Lake Gen2 Silver Folder** in Parquet format.
  
-    ![image](https://github.com/user-attachments/assets/2ae5c538-442d-4d3d-bd2f-14bd4473a991)
+    ![image](https://github.com/user-attachments/assets/8346a6c3-5b49-48a7-8417-0c9109d5fcac)
+    
+    ![image](https://github.com/user-attachments/assets/9f3069be-42e2-44e5-977e-f9482508b2c9)
+    
+    ![image](https://github.com/user-attachments/assets/c0bb977c-01c5-4d35-8d7a-25d86cdcfdc7)
+    
+    ![image](https://github.com/user-attachments/assets/99dbdf58-e79a-415a-be90-40eb6cc480e1)
 
-    ![image](https://github.com/user-attachments/assets/9a9c42c2-dd1a-43c6-88d7-c4989f498fd0)
 
-    ![image](https://github.com/user-attachments/assets/047bef2d-816e-42e0-9965-d79b39f38000)
 
-    ![image](https://github.com/user-attachments/assets/7d63f998-35e2-4ac6-8107-5004f4605e35)
+
 
 
 
@@ -89,11 +93,22 @@ Here’s the overall architecture of the project:
 - The data was stored in the **Gold Folder** of **Data Lake Gen2**.
 - Delta Tables make it easy to query and perform analytics on the data.
 
-  ![image](https://github.com/user-attachments/assets/d549ace6-a704-4040-91c4-5ab5faea4014)
+  ![image](https://github.com/user-attachments/assets/aad5e507-d298-4b61-9c5b-8abd50d06485)
 
-  ![image](https://github.com/user-attachments/assets/88fde5d3-0bbc-47f3-a045-ef54d51d42c1)
+  ![image](https://github.com/user-attachments/assets/62ebe19f-e041-4d92-b797-0d79913deab9)
 
-  ![image](https://github.com/user-attachments/assets/2e6cbc32-03f1-4148-981b-030974affde7)
+  ![image](https://github.com/user-attachments/assets/fa466aac-a20c-4052-990c-de598bda2fd8)
+
+  ![image](https://github.com/user-attachments/assets/c485d5ea-4dc7-4e97-b53a-20c3bb29c1d1)
+
+  ![image](https://github.com/user-attachments/assets/0b693946-f91d-4519-a4e2-3522f83cf420)
+
+
+
+
+
+
+
 
 
 
