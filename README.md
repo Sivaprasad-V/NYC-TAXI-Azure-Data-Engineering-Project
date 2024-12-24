@@ -2,6 +2,9 @@
 
 Welcome to my **Azure End-to-End Data Engineering Project**! In this project, I used various Azure tools and technologies to **ingest, transform, and serve data** efficiently. Let’s dive into what I’ve built step by step. 🛠️
 
+![image](https://github.com/user-attachments/assets/60593f89-1d11-4874-9450-20f6c6913e96)
+
+
 ---
 
 ## 📋 **Project Overview**
